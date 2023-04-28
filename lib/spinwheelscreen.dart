@@ -168,7 +168,7 @@ class _SpinWheelState extends State<SpinWheel> {
                   width: 120,
                   child: Center(
                     child: Text(
-                      "SPIN",
+                      "SPIN!",
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ),
