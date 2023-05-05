@@ -12,6 +12,7 @@ class SpinWheel extends StatefulWidget {
 class _SpinWheelState extends State<SpinWheel> {
   final selected = BehaviorSubject<int>();
   int rewards = 0;
+  
   final List<FortuneItem> items = [
     FortuneItem(
       child: Text(
@@ -59,16 +60,23 @@ class _SpinWheelState extends State<SpinWheel> {
     ),
   ];
 
-  // animatedEnd() {
-  //   setState(() {
-  //     rewards = items[selected.value] as int;
-  //   });
-  // }
+  animatedEnd() {
+   // setState(() {
+     // rewards = items[selected.value] as int;
+    //});
+  }
 
   @override
   void dispose() {
     selected.close();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  
   }
 
   @override
@@ -113,7 +121,7 @@ class _SpinWheelState extends State<SpinWheel> {
                     ...items,
                   ],
                   onAnimationEnd: () {
-                    // animatedEnd();
+                    animatedEnd();
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Container(
@@ -135,7 +143,7 @@ class _SpinWheelState extends State<SpinWheel> {
                                 overflow: TextOverflow.ellipsis,
                               ),
                               Text(
-                                " لقد ربحت " + rewards.toString(),
+                                " لقد ربحت " +    items[selected.value].toString(),
                                 style: TextStyle(
                                   color: Color.fromARGB(248, 187, 55, 55),
                                   fontSize: 20,
